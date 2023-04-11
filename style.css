@@ -1,0 +1,273 @@
+/*Button that autofills fields with data for testing purposes*/
+#test {
+    width: 50px;
+    text-align: center;
+    background-color: lightyellow;
+    color: red;
+}
+
+*, *::before,  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-section {
+    flex-basis: 30%;
+    display: flex;
+}
+
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 12%;
+}
+
+.top-section #background {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+#blank-back {
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.front-card {
+    position: relative;
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 180px;
+}
+
+.top, .bottom {
+    display: flex;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.top {
+    flex-basis: 40%;
+    align-items: center;
+}
+
+.bottom {
+    flex-wrap: wrap;
+    align-content: end;
+    color: whitesmoke;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+#blank-front {
+    position: absolute;
+    z-index: -1;
+    top: 0%;
+    left: 0%;
+    flex-basis: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+#white-plain-circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+}
+#white-hollow-circle {
+    margin-left: 25px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(134, 111, 133);
+}
+
+#oncard-number {
+    flex-basis: 100%;
+    margin-bottom: 18px;
+}
+
+#oncard-name {
+    flex-basis: 70%;
+    opacity: 80%;
+    font-size: 0.8rem;
+}
+
+#oncard-exp {
+    display: flex;
+    justify-content: center;
+    flex-basis: 30%;
+    text-align: center;
+    opacity: 80%;
+    font-size: 0.8rem;
+}
+
+.back-card {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 0;
+    top: 2%;
+    left: 30%;
+    width: 300px;
+    height: 180px;
+}
+
+#oncard-cvc {
+    color: whitesmoke;
+    margin-right: 11%;
+    align-self: center;
+    font-size: 0.8rem;
+}
+
+.cardholder-name, .cardnumber {
+    display: flex;
+    flex-direction: column;
+}
+
+.labels {
+    display: flex;
+}
+
+label[for="exp-date"], label[for="cvc"] {
+    flex-basis: 50%;
+}
+
+.exp-and-cvc {
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.expiration-date, .cvc {
+    flex-basis: 50%;
+}
+.expiration-date {
+    display: flex;
+}
+
+#cardholder-name, #card-number, #exp-month, #exp-year, #cvc {
+    font-size: 18px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid hsl(270, 3%, 87%);
+}
+
+.cardholder-name, .cardnumber, .labels, .exp-and-cvc {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.cardholder-name label, .cardnumber label, .labels {
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+#exp-month, #exp-year {
+    margin-right: 5%;
+}
+
+.exp-and-cvc {
+    margin-bottom: 3%;
+}
+
+.confirm-button, #continue-button {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 50px;
+}
+
+
+#confirm, #continue-button {
+
+    font-size: 16px;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    color: whitesmoke;
+    border-radius: 7px;
+    background-color: hsl(278, 68%, 11%);
+}
+
+#confirm:hover, #continue-button:hover {
+    transform: scale(1.02);
+    background-color: hsl(278, 72%, 21%);
+}
+
+/* INITIAL STATE: As the user fills the form up, the "Thank you!" message and the "Continue button" should be hidden */
+#thank-you-message, #continue-button, #check-img {
+    display: none;
+}
+
+/* COMPLETE STATE: All information entered was valid and user clicked on the "Confirm" button */
+#thank-you-message {
+    align-self: center;
+    text-align: center;
+    margin-bottom: 15%;
+}
+
+#check-img {
+    transform: scale(0.9,0.9);
+    align-self: center;
+    margin-top: 8%;
+    margin-bottom: 5%;
+}
+/* RESPONSIVE DESIGN: MOBILE TO DESKTOP VIEW */
+
+@media (min-width: 375px) {
+    .main-container {
+        flex-direction: row;
+    }
+
+    .top-section #background {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .bottom-section {
+        /* margin: auto auto; */
+        justify-self: center;
+        margin-left: 30%;
+        margin-right: 20%;
+    }
+
+    .back-card {
+        top: 45%;
+        left: 15%;
+        width: 300px;
+        height: 180px;
+    }
+
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+  </head>
+  <body>      
+      
+    <div class="main-container">  
+
+      <div class="top-section">
+        <img id="background" src="./images/bg-main-mobile.png" alt="top background mobile">
+
+        <div class="front-card">
+          <img id="blank-front" src="./images/bg-card-front.png" alt="blank card front">
+          
+          <div class="top">
+            <div id="white-plain-circle"></div>
+            <div id="white-hollow-circle"></div>
+          </div>
+          
+          <div class="bottom">
+            <div id="oncard-number"></div>
+            <div id="oncard-name"></div>
+            <div id="oncard-exp">
+              <div id="month"></div>
+              <div id="year"></div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="back-card">
+          <div id="oncard-cvc"></div>
+          <img id="blank-back" src="./images/bg-card-back.png" alt="blank card back">
+        </div>
+
+      </div>
+
+      <div class="bottom-section">
+
+        <form id="interactive-card-form" action="#" method="#">
+          
+          <div class="cardholder-name">
+            <label for="cardholder-name">CARDHOLDER NAME</label>
+            <input type="text" id="cardholder-name" name="cardholder-name" oninput="updateCardName(this.value)" placeholder="e.g. João Silva" autocomplete="cc-name" pattern="[a-zA-Z ]+" minlength="30" maxlength="30" required>
+          </div>
+
+          <div class="cardnumber">
+            <label for="card-number">CARD NUMBER</label>
+            <input type="text" id="card-number" name="card-number" oninput="updateCardNumber(this.value)" placeholder="e.g. 1234 5678 9123 0000" autocomplete="cc-number" pattern="[0-9 ]+{16}" minlength="16" maxlength="16" required>      
+          </div>
+
+          <div class="labels">
+            <label for="exp-date">EXP. DATE (MM/YY)</label>
+            <label for="cvc">CVC</label>
+          </div>     
+
+          <div class="exp-and-cvc">
+            <div class="expiration-date">
+              <input type="text" id="exp-month" name="exp-month" oninput="updateMonth(this.value)" placeholder="MM" autocomplete="cc-exp-month" pattern="(0?[1-9]|1[0-2])" minlength="2" maxlength="2" required>
+              <input type="text" id="exp-year" name="exp-year" oninput="updateYear(this.value)" placeholder="YY" autocomplete="cc-exp-year" pattern="[0-9]{2}" minlength="2" maxlength="2" required><br><br>
+            </div>
+  
+            <div class="cvc">
+              <input type="text" id="cvc" name="cvc" placeholder="e.g. 123" oninput="updateCVC(this.value)" minlength="3" maxlength="3" pattern="\d{3}" required>
+            </div> 
+          </div>
+
+          <div class="confirm-button">
+            <!-- <button id="confirm">Confirm</button> -->
+            <input id="confirm" type="submit" value="Confirm">
+          </div>
+
+        </form>
+
+        <!-- <button id="test">TEST</button> -->
+
+        <img id="check-img" src="./images/icon-complete.png" alt="complete icon">
+                
+        <!-- Thank you message when fields are correctly filled up and the "Confirm" button is pressed -->
+        <div id="thank-you-message">
+          <h1>Thank you!</h1>
+          <p>We've added your card details</p>
+        </div>
+
+        <!-- Continue button that restores the empty form on the screen -->
+        <button id="continue-button" type="button">Continue</button>
+
+      </div>
+    </div>
+      <script src="./index.js"></script>
+  </body>
+</html>
